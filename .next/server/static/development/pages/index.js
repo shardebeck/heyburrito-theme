@@ -93,23 +93,23 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./components/Stars.js":
-/*!*****************************!*\
-  !*** ./components/Stars.js ***!
-  \*****************************/
+/***/ "./components/Cards.jsx":
+/*!******************************!*\
+  !*** ./components/Cards.jsx ***!
+  \******************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Stars; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Cards; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/Users/stefan.lind.alpstad/dev/Eget/heyburrito-theme/components/Stars.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var _jsxFileName = "/home/chralp/dev/chralp/heyburrito-theme/components/Cards.jsx";
 
-function Stars({
-  stars
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+function Cards({
+  data
 }) {
   return __jsx("div", {
     __source: {
@@ -117,7 +117,136 @@ function Stars({
       lineNumber: 4
     },
     __self: this
-  }, "jag har: ", stars, "st problem!");
+  }, __jsx("div", {
+    className: "scoreboard__user__row scoreboard__user__summary",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    },
+    __self: this
+  }, __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: this
+  }, __jsx("img", {
+    width: "48",
+    height: "48",
+    src: "{data.avatar}",
+    alt: "",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  })), __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 9
+    },
+    __self: this
+  }, data.name), __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }, __jsx("span", {
+    "data-element": "score",
+    className: "score",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }, data.score))), __jsx("div", {
+    className: "scoreboard__user__stats",
+    "data-stats": true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 12
+    },
+    __self: this
+  }, __jsx("div", {
+    className: "scoreboard__user__stats__column",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: this
+  }, __jsx("strong", {
+    className: "scoreboard__user__stats__title",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
+  }, "From"), __jsx("ol", {
+    className: "scoreboard__user__stats__list",
+    "data-from": true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  })), __jsx("div", {
+    className: "scoreboard__user__stats__column",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
+  }, __jsx("strong", {
+    className: "scoreboard__user__stats__title",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 19
+    },
+    __self: this
+  }, "To"), __jsx("ol", {
+    className: "scoreboard__user__stats__list",
+    "data-to": true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }))));
+}
+
+/***/ }),
+
+/***/ "./components/Layout.jsx":
+/*!*******************************!*\
+  !*** ./components/Layout.jsx ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Layout; });
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-jsx/style */ "styled-jsx/style");
+/* harmony import */ var styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/home/chralp/dev/chralp/heyburrito-theme/components/Layout.jsx";
+
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+function Layout() {
+  return __jsx("div", {
+    className: "jsx-193360141",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 2
+    },
+    __self: this
+  }, __jsx(styled_jsx_style__WEBPACK_IMPORTED_MODULE_0___default.a, {
+    id: "193360141",
+    __self: this
+  }, "body.jsx-193360141{background-color:'red';}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2NocmFscC9kZXYvY2hyYWxwL2hleWJ1cnJpdG8tdGhlbWUvY29tcG9uZW50cy9MYXlvdXQuanN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUUwQixBQUdrQyx1QkFDekIiLCJmaWxlIjoiL2hvbWUvY2hyYWxwL2Rldi9jaHJhbHAvaGV5YnVycml0by10aGVtZS9jb21wb25lbnRzL0xheW91dC5qc3giLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBMYXlvdXQgKCkge1xuICAgIHJldHVybiA8ZGl2PlxuICAgICAgICAgICAgICA8c3R5bGUganN4PntgXG4gICAgICAgIGJvZHkge1xuICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICdyZWQnO1xuICAgICAgICB9XG5cbiAgICAgIGB9PC9zdHlsZT5cbiAgICAgICAgICAgPC9kaXY+O1xufVxuIl19 */\n/*@ sourceURL=/home/chralp/dev/chralp/heyburrito-theme/components/Layout.jsx */"));
 }
 
 /***/ }),
@@ -136,30 +265,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_Stars__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Stars */ "./components/Stars.js");
-var _jsxFileName = "/Users/stefan.lind.alpstad/dev/Eget/heyburrito-theme/pages/index.js";
+/* harmony import */ var _components_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Layout */ "./components/Layout.jsx");
+/* harmony import */ var _components_Cards__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Cards */ "./components/Cards.jsx");
+var _jsxFileName = "/home/chralp/dev/chralp/heyburrito-theme/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
 function HomePage({
-  stars
+  data
 }) {
-  return __jsx(_components_Stars__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    stars: stars,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 6
-    },
-    __self: this
+  console.log("data", data);
+  return data.map(x => {
+    return __jsx(_components_Cards__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      data: x,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9
+      },
+      __self: this
+    });
   });
 }
 
 HomePage.getInitialProps = async () => {
-  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()("https://api.github.com/repos/zeit/next.js");
+  const res = await isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_1___default()("http://localhost:3333/api/scoreboard/to");
   const json = await res.json();
   return {
-    stars: json.stargazers_count
+    data: json.data
   };
 };
 
@@ -172,7 +306,7 @@ HomePage.getInitialProps = async () => {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/stefan.lind.alpstad/dev/Eget/heyburrito-theme/pages/index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! /home/chralp/dev/chralp/heyburrito-theme/pages/index.js */"./pages/index.js");
 
 
 /***/ }),
@@ -196,6 +330,17 @@ module.exports = require("isomorphic-unfetch");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "styled-jsx/style":
+/*!***********************************!*\
+  !*** external "styled-jsx/style" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-jsx/style");
 
 /***/ })
 
