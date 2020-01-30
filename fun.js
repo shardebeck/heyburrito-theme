@@ -35,7 +35,14 @@ async function fetcher (type, {username,listType, scoreType}) {
         const json1 = await res1.json();
         return json1.data;
         break;
+    case 'userScore':
+        const res2 = await fetch(`http://localhost:3333/api/userscore/${username}/${listType}/${scoreType}`);
+        const json2 = await res2.json();
+        const {data} = json2;
+        return json2;
+        break;
     }
+
 };
 
 const getScoreBoard = async() => {
@@ -99,7 +106,6 @@ function sortUsers(sort = false) {
 
             return mappedItem;
     });
-    console.log("HEJ", store);
 }
 
 function displayItem(element, wait, rerender) {
@@ -180,7 +186,6 @@ function addUserInfo(user, container) {
     container.innerHTML = html;
 }
 function addStats(data) {
-    console.log("addStatsaa", data)
     const element = document.getElementById(`user:${data.user.username}`);
     const statsEl = element.querySelector('[data-stats]');
     const infoEl = element.querySelector('[data-info]');
@@ -343,80 +348,69 @@ function appendUser(data) {
     displayItem(element, 200, true);
 }
 
-function updateUser(data, direction, item) {
+function updateUser(data, direction, item,burritoType) {
     const score = data.score;
     const scoreEl = item.querySelector('[data-element="score"]');
     const className = (direction === 'up') ? ' tada animated good' : ' shake animated bad';
 
     item.setAttribute('data-score', score);
     scoreEl.innerHTML = score;
-    scoreEl.className += className;
+
+    let scoreUpdated = false;
 
     store = store.slice().map((user) => {
         let uppdatedUser = Object.assign({}, user);
 
-        if (user.username === data.username) {
+        if (user.username === data.username && user.score !== data.score) {
             uppdatedUser.score = data.score;
+            rainBurritos(burritoType);
+            scoreUpdated = true;
         }
         return uppdatedUser;
     });
 
-    setTimeout(() => {
-        scoreEl.className = scoreEl.className.replace(className, '').trim();
+    if (scoreUpdated) {
+        scoreEl.className += className;
 
         setTimeout(() => {
-            sortUsers(true);
-            render(true);
-        }, 1500);
-    }, 1000);
+            scoreEl.className = scoreEl.className.replace(className, '').trim();
+            setTimeout(() => {
+                sortUsers(true);
+                render(true);
+            }, 1500);
+        }, 1000);
+    }
+
 }
 
-function updateScore(data, direction) {
+function updateScore(data, direction,burritoType) {
     const item = document.querySelector(`[data-uuid="${data.username}"]`);
 
     if (item) {
-        updateUser(data, direction, item);
+        updateUser(data, direction, item,burritoType);
     } else {
-        appendUser(data);
+        appendUser(data,burritoType);
     }
 }
 
-hey.on('GIVE', (data) => {
-    console.log("USERA",{data,listType, scoreType})
-
-    let user;
-    if(listType === 'from'){
-        user = data.from;
-    }else{
-        user = data.to;
-    }
-
-    if(scoreType === 'inc'){
-        hey.get('userScore', {user,listType, scoreType});
-    }
-});
-hey.on('TAKE_AWAY', (data) => {
-
-    let user;
-    if(listType === 'from'){
-        user = data.from;
-    }else{
-        user = data.to;
-    }
-
-    if(scoreType === 'dec'){
-        hey.get('userScore', {user,listType, scoreType});
-    }
-});
-
-
-hey.on('userScore', (data) => {
-    console.log("USERSCORE", data)
+hey.on('GIVE', async (input) => {
+    const username = input[listType];
+    const {data} = await fetcher('userScore', {username, listType, scoreType});
     const direction = (data.scoreType === 'inc') ? 'up' : 'down';
     const burritoType = (data.scoreType === 'inc') ? 'burrito': 'rottenburrito';
-    updateScore(data, direction);
-    rainBurritos(burritoType);
+    updateScore(data, direction,burritoType);
+
 });
+
+hey.on('TAKE_AWAY', async (input) => {
+    const username = input[listType];
+    const {data} = await fetcher('userScore', {username, listType, scoreType});
+    const direction = (data.scoreType === 'inc') ? 'up' : 'down';
+    const burritoType = (data.scoreType === 'inc') ? 'burrito': 'rottenburrito';
+    updateScore(data, direction,burritoType);
+});
+
+
 
 function rainBurritos(type){
     const rottenburrito = `<svg xmlns="http://www.w3.org/2000/svg" width="0.85em" viewBox="0 0 93 189">
