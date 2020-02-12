@@ -11,6 +11,8 @@ const getLocalStorage = (key) => {
     return localStorage.getItem(key);
 };
 
+const burritoHost = window.location.hostname;
+
 let listType = getLocalStorage('listType') || 'to';
 let scoreType = getLocalStorage('scoreType') || 'inc';
 let userType = getLocalStorage('userType') || 'member';
@@ -26,17 +28,17 @@ filtercSwitch.checked = (userType === 'member' ) ? true : false;
 async function fetcher (type, {username,listType, scoreType}) {
     switch (type) {
     case 'scoreboard':
-        const res = await fetch(`http://localhost:3333/api/scoreboard/${listType}/${scoreType}`);
+        const res = await fetch(`${burritoHost}/api/scoreboard/${listType}/${scoreType}`);
         const json = await res.json();
         return json.data;
         break;
     case 'userStats':
-        const res1 = await fetch(`http://localhost:3333/api/userstats/${username}`);
+        const res1 = await fetch(`${burritoHost}/api/userstats/${username}`);
         const json1 = await res1.json();
         return json1.data;
         break;
     case 'userScore':
-        const res2 = await fetch(`http://localhost:3333/api/userscore/${username}/${listType}/${scoreType}`);
+        const res2 = await fetch(`${burritoHost}/api/userscore/${username}/${listType}/${scoreType}`);
         const json2 = await res2.json();
         const {data} = json2;
         return json2;
