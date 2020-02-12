@@ -28,17 +28,17 @@ filtercSwitch.checked = (userType === 'member' ) ? true : false;
 async function fetcher (type, {username,listType, scoreType}) {
     switch (type) {
     case 'scoreboard':
-        const res = await fetch(`${burritoHost}/api/scoreboard/${listType}/${scoreType}`);
+        const res = await fetch(`/api/scoreboard/${listType}/${scoreType}`);
         const json = await res.json();
         return json.data;
         break;
     case 'userStats':
-        const res1 = await fetch(`${burritoHost}/api/userstats/${username}`);
+        const res1 = await fetch(`/api/userstats/${username}`);
         const json1 = await res1.json();
         return json1.data;
         break;
     case 'userScore':
-        const res2 = await fetch(`${burritoHost}/api/userscore/${username}/${listType}/${scoreType}`);
+        const res2 = await fetch(`/api/userscore/${username}/${listType}/${scoreType}`);
         const json2 = await res2.json();
         const {data} = json2;
         return json2;
