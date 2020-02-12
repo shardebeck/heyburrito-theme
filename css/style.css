@@ -156,6 +156,7 @@ h1 {
 .scoreboard__user {
     max-width: 700px;
     margin:auto;
+    margin-right: 15px;
     background: white;
     border-radius: 5px;
     box-shadow: 0 7px 14px 0 rgba(50,50,93,.1), 0 3px 6px 0 rgba(0,0,0,.07);
@@ -181,13 +182,13 @@ h1 {
     max-width: 700px;
     display: flex;
     align-items: center;
-    height: 55px;
+    max-height: 55px;
     padding: 16px 0;
 }
 
 .scoreboard__user__row div {
+    flex:1;
     padding: 0 24px;
-    flex: 1;
 }
 
 .scoreboard__user__row div:first-child {
