@@ -325,7 +325,7 @@ function createElement(data, display) {
     <img class="avatar" width="48" height="48" src="${data.avatar}" alt="">
   </div>
   <div class="displayname">${data.name}
-<span data-element="level" class="level">${level(data.level)}</span>
+<span data-element="level" class="level">${data.level ? level(data.level) : ''}</span>
 </div>
   <div><span data-element="score" class="score">${data.score}</span></div>
 </div>
