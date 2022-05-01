@@ -304,6 +304,10 @@ h1 {
     color: #E08DAC;
 }
 
+.score.overdrawn {
+    color:#DEAE7E;
+}
+
 .position {
     color:#DEAE7E;
     font-size: 14px;
