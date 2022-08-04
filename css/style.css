@@ -365,6 +365,7 @@ h1 {
         flex-direction: column;
         justify-content: center;
         padding-bottom: 10px;
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 }
